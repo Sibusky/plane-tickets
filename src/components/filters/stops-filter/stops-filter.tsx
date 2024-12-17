@@ -19,14 +19,12 @@ export default function StopsFilter({
 
   const handleOptionClick = (value: number) => {
     if (value === -1) {
-      // If "Все" is clicked, toggle between all or none
       if (selectedStops.length === options.length - 1) {
         onStopsChange([]);
       } else {
         onStopsChange(options.slice(1).map((opt) => opt.value));
       }
     } else {
-      // Toggle individual option
       const newSelected = selectedStops.includes(value)
         ? selectedStops.filter((s) => s !== value)
         : [...selectedStops, value];

@@ -9,14 +9,25 @@ import { Currency, ITicket } from "./types/types";
 function App() {
   const [activeCurrency, setActiveCurrency] = useState<Currency>("RUB");
   const [selectedStops, setSelectedStops] = useState<number[]>([]);
+  const [sortByPrice, setSortByPrice] = useState<"asc" | "desc" | null>(null);
 
   const tickets: ITicket[] = ticketsData.tickets;
   const currencies: Currency[] = ["RUB", "USD", "EUR"];
 
   const filteredTickets = useMemo(() => {
-    if (selectedStops.length === 0) return tickets;
-    return tickets.filter((ticket) => selectedStops.includes(ticket.stops));
-  }, [tickets, selectedStops]);
+    let result =
+      selectedStops.length === 0
+        ? tickets
+        : tickets.filter((ticket) => selectedStops.includes(ticket.stops));
+
+    if (sortByPrice) {
+      result = [...result].sort((a, b) => {
+        return sortByPrice === "asc" ? a.price - b.price : b.price - a.price;
+      });
+    }
+
+    return result;
+  }, [tickets, selectedStops, sortByPrice]);
 
   return (
     <main>
@@ -28,6 +39,8 @@ function App() {
           onCurrencyChange={setActiveCurrency}
           selectedStops={selectedStops}
           onStopsChange={setSelectedStops}
+          sortByPrice={sortByPrice}
+          onSortChange={setSortByPrice}
         />
         <List tickets={filteredTickets} activeCurrency={activeCurrency} />
       </div>

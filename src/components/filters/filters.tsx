@@ -1,6 +1,7 @@
 import { Currency } from "../../types/types";
 import CurrencyFilter from "./currency-filter";
 import styles from "./filters.module.css";
+import SortFilter from "./sort-filter/sort-filter";
 import StopsFilter from "./stops-filter";
 
 interface FiltersProps {
@@ -9,6 +10,8 @@ interface FiltersProps {
   onStopsChange: (stops: number[]) => void;
   activeCurrency: Currency;
   onCurrencyChange: (currency: Currency) => void;
+  sortByPrice: "asc" | "desc" | null;
+  onSortChange: (sort: "asc" | "desc" | null) => void;
 }
 
 export default function Filters({
@@ -17,6 +20,8 @@ export default function Filters({
   onCurrencyChange,
   selectedStops,
   onStopsChange,
+  sortByPrice,
+  onSortChange,
 }: FiltersProps) {
   return (
     <div className={styles.filters}>
@@ -29,6 +34,7 @@ export default function Filters({
         selectedStops={selectedStops}
         onStopsChange={onStopsChange}
       />
+      <SortFilter sortByPrice={sortByPrice} onSortChange={onSortChange} />
     </div>
   );
 }

@@ -1,0 +1,35 @@
+.sortFilter {
+}
+
+.title {
+  color: #4c4c4c;
+  text-align: left;
+  margin: 0 0 20px 0;
+}
+
+.sortButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sortButton {
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #2196f3;
+  font-size: 16px;
+}
+
+.sortButton:hover {
+  background: #f2fcff;
+  color: #2196f3;
+}
+
+.sortButton.active {
+  background: #2196f3;
+  border-color: #2196f3;
+  color: white;
+}
