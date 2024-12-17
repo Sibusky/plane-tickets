@@ -1,0 +1,10 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: auto;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}

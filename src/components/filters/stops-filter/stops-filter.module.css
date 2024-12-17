@@ -1,0 +1,24 @@
+.stopsFilter {
+}
+
+.title {
+  color: #4c4c4c;
+  text-align: left;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  cursor: pointer;
+  color: #4c4c4c;
+}
+
+.option:hover {
+  background: #f2fcff;
+}
+
+.option input[type="checkbox"] {
+  accent-color: #2196f3;
+}

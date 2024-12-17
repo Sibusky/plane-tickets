@@ -1,0 +1,103 @@
+.ticket {
+  display: flex;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leftSection {
+  width: 200px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.airline img {
+  width: 120px;
+  height: auto;
+}
+
+.buyButton {
+  width: 160px;
+  padding: 10px;
+  background-color: #ff6d00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+.rightSection {
+  flex: 1;
+}
+
+.flightInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.time {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.stops {
+  position: relative;
+  text-align: center;
+  padding: 0 20px;
+  width: 50%;
+}
+
+.stops::after {
+  /* plane icon */
+  content: "✈";
+  position: absolute;
+  bottom: -27.5px;
+  right: 0;
+  color: #d2d5d6;
+  font-size: 22px;
+}
+
+.stopsText {
+  color: #8b9497;
+}
+
+.stopsText::after {
+  /* line */
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  right: 24px;
+  width: calc(100% - 24px);
+  height: 1px;
+  background-color: #d2d5d6;
+}
+
+.cityInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.city {
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.dateInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  font-size: 12px;
+  color: #8b8b8b;
+}
