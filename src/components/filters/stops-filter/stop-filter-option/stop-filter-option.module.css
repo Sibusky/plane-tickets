@@ -1,0 +1,38 @@
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  color: #4c4c4c;
+}
+
+.option:hover {
+  background: #f2fcff;
+}
+
+.option input[type="checkbox"] {
+  margin-right: 8px;
+  border: 1px solid #2196f3;
+}
+
+.option input[type="checkbox"]:checked {
+  background-color: #2196f3;
+  border-color: #2196f3;
+}
+
+.onlyButton {
+  position: absolute;
+  top: 13px;
+  right: 0;
+  opacity: 0;
+  color: #2196f3;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.option:hover .onlyButton {
+  opacity: 1;
+}
