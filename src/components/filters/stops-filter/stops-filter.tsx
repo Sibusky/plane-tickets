@@ -32,6 +32,11 @@ export default function StopsFilter({
     }
   };
 
+  const handleOnlyClick = (value: number, e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent label click
+    onStopsChange([value]);
+  };
+
   return (
     <div className={styles.stopsFilter}>
       <h3 className={styles.title}>КОЛИЧЕСТВО ПЕРЕСАДОК</h3>
@@ -47,6 +52,14 @@ export default function StopsFilter({
             onChange={() => handleOptionClick(value)}
           />
           <span>{label}</span>
+          {value !== -1 && (
+            <button
+              className={styles.onlyButton}
+              onClick={(e) => handleOnlyClick(value, e)}
+            >
+              ТОЛЬКО
+            </button>
+          )}
         </label>
       ))}
     </div>
