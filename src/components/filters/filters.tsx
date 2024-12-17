@@ -1,22 +1,33 @@
-import { useState } from "react";
+import { Currency } from "../../types/types";
 import CurrencyFilter from "./currency-filter";
 import styles from "./filters.module.css";
 import StopsFilter from "./stops-filter";
 
-export default function Filters() {
-  const [selectedStops, setSelectedStops] = useState<number[]>([]);
+interface FiltersProps {
+  currencies: Currency[];
+  selectedStops: number[];
+  onStopsChange: (stops: number[]) => void;
+  activeCurrency: Currency;
+  onCurrencyChange: (currency: Currency) => void;
+}
 
-  //   const filterTickets = (tickets) => {
-  //     if (selectedStops.length === 0) return tickets;
-  //     return tickets.filter((ticket) => selectedStops.includes(ticket.stops));
-  //   };
-
+export default function Filters({
+  currencies,
+  activeCurrency,
+  onCurrencyChange,
+  selectedStops,
+  onStopsChange,
+}: FiltersProps) {
   return (
     <div className={styles.filters}>
-      <CurrencyFilter />
+      <CurrencyFilter
+        currencies={currencies}
+        activeCurrency={activeCurrency}
+        onCurrencyChange={onCurrencyChange}
+      />
       <StopsFilter
         selectedStops={selectedStops}
-        onStopsChange={setSelectedStops}
+        onStopsChange={onStopsChange}
       />
     </div>
   );

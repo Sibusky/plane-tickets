@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { Currency } from "../../../types/types";
 import styles from "./currency-filter.module.css";
 
-type Currency = "RUB" | "USD" | "EUR";
+interface CurrencyFilterProps {
+  currencies: Currency[];
+  activeCurrency: Currency;
+  onCurrencyChange: (currency: Currency) => void;
+}
 
-export default function CurrencyFilter() {
-  const [activeCurrency, setActiveCurrency] = useState<Currency>("RUB");
-
-  const currencies: Currency[] = ["RUB", "USD", "EUR"];
-
+export default function CurrencyFilter({
+  currencies,
+  activeCurrency,
+  onCurrencyChange,
+}: CurrencyFilterProps) {
   return (
     <div>
       <h3 className={styles.title}>ВАЛЮТА</h3>
@@ -18,7 +22,7 @@ export default function CurrencyFilter() {
             className={`${styles.option} ${
               activeCurrency === currency ? styles.active : ""
             }`}
-            onClick={() => setActiveCurrency(currency)}
+            onClick={() => onCurrencyChange(currency)}
           >
             {currency}
           </button>
