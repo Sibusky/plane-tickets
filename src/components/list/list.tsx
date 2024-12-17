@@ -10,12 +10,10 @@ export default function List({
   activeCurrency: Currency;
 }) {
   return (
-    <div className={styles.list}>
+    <ul className={styles.list}>
       {tickets.map((ticket, index) => (
         <Ticket key={index} ticket={ticket} activeCurrency={activeCurrency} />
       ))}
-      {/* // В данном случае использование index в качестве key не является ошибкой, потому что с билетами не происходит никаких действий (удаление, добавление)
-    // Всё же лучше использовать id билета в качестве key, но его нет в json. */}
-    </div>
+    </ul>
   );
 }

@@ -14,7 +14,7 @@ export function Ticket({
   activeCurrency: Currency;
 }) {
   return (
-    <div className={styles.ticket}>
+    <li className={styles.ticket}>
       <div className={styles.leftSection}>
         <div className={styles.airline}>
           <img
@@ -55,7 +55,7 @@ export function Ticket({
           <div className={styles.date}>{ticket.arrival_date}</div>
         </div>
       </div>
-    </div>
+    </li>
   );
 }
 

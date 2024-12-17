@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 8px;
   padding: 8px 0;
   cursor: pointer;
   color: #4c4c4c;
@@ -13,7 +12,13 @@
 }
 
 .option input[type="checkbox"] {
-  accent-color: #2196f3;
+  margin-right: 8px;
+  border: 1px solid #2196f3;
+}
+
+.option input[type="checkbox"]:checked {
+  background-color: #2196f3;
+  border-color: #2196f3;
 }
 
 .onlyButton {

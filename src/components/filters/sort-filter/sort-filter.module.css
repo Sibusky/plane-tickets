@@ -1,6 +1,3 @@
-.sortFilter {
-}
-
 .title {
   color: #4c4c4c;
   text-align: left;
@@ -10,7 +7,14 @@
 .sortButtons {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+}
+
+.sortButtons > * {
+  margin-bottom: 10px;
+}
+
+.sortButtons > *:last-child {
+  margin-bottom: 0;
 }
 
 .sortButton {
