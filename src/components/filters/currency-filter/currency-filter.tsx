@@ -1,5 +1,6 @@
 import { Currency } from "../../../types/types";
 import styles from "./currency-filter.module.css";
+import CurrencyOption from "./currency-option/currency-option";
 
 interface CurrencyFilterProps {
   currencies: Currency[];
@@ -15,19 +16,16 @@ export default function CurrencyFilter({
   return (
     <div>
       <h3 className={styles.title}>ВАЛЮТА</h3>
-      <div className={styles.container}>
+      <ul className={styles.container}>
         {currencies.map((currency) => (
-          <button
+          <CurrencyOption
             key={currency}
-            className={`${styles.option} ${
-              activeCurrency === currency ? styles.active : ""
-            }`}
-            onClick={() => onCurrencyChange(currency)}
-          >
-            {currency}
-          </button>
+            currency={currency}
+            activeCurrency={activeCurrency}
+            onCurrencyChange={onCurrencyChange}
+          />
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

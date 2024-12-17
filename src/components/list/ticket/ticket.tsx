@@ -1,3 +1,4 @@
+import React from "react";
 import { Currency, ITicket } from "../../../types/types";
 import { getCurrencySymbol } from "../../../utils/currency";
 import { convertPrice } from "../../../utils/currency";
@@ -5,7 +6,7 @@ import { formatPrice } from "../../../utils/currency";
 import { getStopsText } from "../../../utils/stops";
 import styles from "./ticket.module.css";
 
-export default function Ticket({
+export function Ticket({
   ticket,
   activeCurrency,
 }: {
@@ -57,3 +58,5 @@ export default function Ticket({
     </div>
   );
 }
+
+export default React.memo(Ticket);

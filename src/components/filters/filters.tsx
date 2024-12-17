@@ -7,7 +7,8 @@ import StopsFilter from "./stops-filter";
 interface FiltersProps {
   currencies: Currency[];
   selectedStops: number[];
-  onStopsChange: (stops: number[]) => void;
+  handleOptionClick: (value: number) => void;
+  handleOnlyClick: (value: number, e: React.MouseEvent) => void;
   activeCurrency: Currency;
   onCurrencyChange: (currency: Currency) => void;
   sortByPrice: "asc" | "desc" | null;
@@ -19,7 +20,8 @@ export default function Filters({
   activeCurrency,
   onCurrencyChange,
   selectedStops,
-  onStopsChange,
+  handleOptionClick,
+  handleOnlyClick,
   sortByPrice,
   onSortChange,
 }: FiltersProps) {
@@ -32,7 +34,8 @@ export default function Filters({
       />
       <StopsFilter
         selectedStops={selectedStops}
-        onStopsChange={onStopsChange}
+        handleOptionClick={handleOptionClick}
+        handleOnlyClick={handleOnlyClick}
       />
       <SortFilter sortByPrice={sortByPrice} onSortChange={onSortChange} />
     </div>
